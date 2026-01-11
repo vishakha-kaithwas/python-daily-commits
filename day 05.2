@@ -1,0 +1,15 @@
+username="example123"
+password="example@123"
+while True:
+    user=input("Enter the username:")
+    pwd=input("Enter the password:") 
+    if user == username and pwd == password:
+        print("Congratulations🎉 you entered right information")
+        break
+    elif user != username:
+        print("Incorrect username!!")
+        continue 
+    elif pwd != password:
+        print("Incorrect password!!")
+        continue
+    
