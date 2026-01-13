@@ -1,0 +1,43 @@
+import time
+class safe:
+    def __init__(self,name,email,password):
+        self.name = name 
+        self._email = email 
+        self.__password = password 
+    
+    def email(self):
+        return self._email 
+    def set_email(self,new_email):
+        if '@' in new_email:
+            self._email = new_email 
+        else:
+            print("Please give valid email that include @")
+    def password(self):
+        return self.__password 
+    def set_password(self,new_pass):
+        if len(new_pass)>= 8:
+            self.__password = new_pass 
+        else:
+            print("Please provide good length password for security")
+def check(update):
+    def abc():
+        start = time.time()
+        update()
+        end = time.time()
+        print(f"Secure operation takes: {end - start:4f} seconds")
+        return abc 
+@check
+def update(self):
+    time.sleep(2)
+    print(f"Email is: {self._email}")
+    print(f"Password is: {self.__password}")
+
+user = safe("vish@","geiruiqooa","hellowie")
+print("Old password is:",user.assword)
+passe=input("Enter new password:")
+user.set
+print(f"New password is:",user.__safe__passe)
+
+    
+
+    
