@@ -1,0 +1,39 @@
+class Employee:
+    company_name = "TATA"
+    Employee_count = 0
+    def __init__(self,name,department,salary):
+        self.name = name 
+        self._department = department 
+        self.__salary = salary
+        Employee.Employee_count += 1
+        self.count = Employee.Employee_count
+    
+    @property
+    def salary(self):
+        return self.__salary
+    
+    @salary.setter 
+    def salary(self,new):
+        if new > 0:
+            self.__salary = new 
+        else:
+            print("Invalid !! Salary should be greater than 0")
+
+    def show(self):
+        print("Name of the Employee:",self.name)
+        print("Department of the Employee:",self._department)
+        print("Salary of the Employee:",self.__salary)
+        print("Count of the Employee:",self.count)
+
+    @staticmethod
+    def is_high_earner(salary):
+        return salary >= 50000
+
+Employee1 = Employee("Broski","IT",142942829)
+Employee2 = Employee("Bruski","CSE",39849384393)
+
+Employee1.show()
+Employee.company_name = "Birla"
+Employee2.salary = 9348398439
+Employee2.show()
+print(Employee.is_high_earner(Employee1.salary))
