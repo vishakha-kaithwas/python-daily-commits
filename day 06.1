@@ -1,0 +1,15 @@
+class profile:
+    def __init__(self,email,password):
+        self._email = email 
+        self.__password = password 
+    
+    def login(self):
+        emails = input("Enter email:")
+        passw = input("Enter password:")
+        if emails == self._email and passw == self.__password:
+            print("Credentials matched successfully")
+        else:
+            print("Credentials didn't matched..try again later")
+
+user = profile("Vishakha","hello@310")
+user.login()
