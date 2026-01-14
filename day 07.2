@@ -1,0 +1,56 @@
+class secret:
+    def __init__(self,name,mission,codeword):
+        self._name = name 
+        self._mission = mission 
+        self.__codeword = codeword 
+    @property
+    def name(self):
+        return self._name 
+    
+    def set_name(self,new_name):
+        if isinstance(new_name,str):
+            self._name = new_name 
+        else:
+            print("Enter valid name")
+    @property
+    def mission(self):
+        return self._mission 
+ 
+    def set_mission(self,new_mission):
+        if isinstance(new_mission,str):
+           self._misssion = new_mission 
+        else:
+            print("Enter valid mission")
+    @property 
+    def codeword(self):
+        return self.__codeword 
+    
+    def set_codeword(self,new_codeword):
+        if isinstance(new_codeword,str):
+            self.__codeword = new_codeword 
+        else:
+            print("Enter valid codeword")
+    
+    def info(self):
+        print("🗒️ Full Agent Info:")
+        print(f"👮🏼Agent: {self._name}")
+        print(f"🎯 Mission: {self._mission}")
+        print(f"🔒 Codeword: {self.__codeword} ")
+
+a1 = secret("Vishakha","Rescrue Mission", "UltraSecret")
+print("Public Access 👇🏼")
+print(f"Agent Name:",a1.name)
+print("Protected Access 👇🏼")
+print("Agent Mission:",a1._mission)
+
+print("Private Access👇🏼")
+try:
+    print("Codeword:",a1.__codeword)
+except AttributeError:
+    print("Can't be accessed directly")
+
+print("Accessing private via name mangling👇🏼")
+print("Codeword accessed via name mangling:",a1._secret__codeword)
+print("Updating codeword securely")
+a1.set_codeword("Ultrahi")
+a1.info()
