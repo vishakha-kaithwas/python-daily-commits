@@ -1,0 +1,50 @@
+class Bank:
+    bank_name = "SBI"
+    def __init__(self,holder_name,account_type,balance):
+        self.holder_name = holder_name 
+        self._account_type = account_type 
+        self.__balance = balance
+
+    @property
+    def balance(self):
+        return self.__balance 
+    
+    @balance.setter 
+    def balance(self,new_balance):
+        if new_balance > 0:
+            self.__balance = new_balance 
+        else:
+            print("Negative values are blocked")
+
+    def deposit(self,amount):
+        if amount > 0:
+            self.__balance += amount 
+        else:
+            print("Amount should be valid")
+
+    def withdraw(self,amount):
+        if amount <= self.__balance:
+            self.__balance -= amount
+        else:
+            print("Insufficient balance")
+    
+    @staticmethod
+    def is_valid_amount(amount):
+        return amount > 0
+    
+    def show_account_details(self):
+        print("Account Holder name was:",self.holder_name)
+        print("Account type was:",self._account_type)
+        print("Total balance:",self.__balance)
+        print("Bank name:",self.bank_name)
+        print("--------------")
+
+Account1 = Bank("Vishakha","Savings",193203920)
+Account2 = Bank("Vishu","Savings",293298329892)
+Account1.withdraw(200)
+Account1.deposit(100)
+Account1.show_account_details()
+Account2.withdraw(9383)
+Account2.deposit(-10)
+Account2.bank_name = "HDFC"
+Account2.show_account_details()
