@@ -1,0 +1,37 @@
+class School:
+    school_name = "Lions"   # class variable
+
+    def __init__(self, name, marks, attendance):
+        self.name = name
+        self._attendance = attendance
+        self.__marks = marks
+
+    @property
+    def marks(self):
+        return self.__marks
+
+    @marks.setter
+    def marks(self, new):
+        if 0 <= new <= 100:
+            self.__marks = new
+        else:
+            print("Invalid marks")
+
+    def getting(self):
+        print("Name:", self.name)
+        print("Attendance:", self._attendance)
+        print("Marks:", self.__marks)
+        print("School:", School.school_name)
+
+    @staticmethod
+    def is_pass(marks):
+        return marks >= 50
+
+
+student = School("Vishakha", 76, 90)
+student.getting()
+
+student.marks = 100
+print(student.marks)
+
+print(School.is_pass(student.marks))
