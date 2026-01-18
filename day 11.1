@@ -1,0 +1,57 @@
+class Password:
+    def __init__(self, password):
+        self._password = password
+
+    # Getter: show masked password
+    @property
+    def password(self):
+        return "*" * len(self._password)
+
+    # Setter: validate password
+    @password.setter
+    def password(self, new_password):
+        if len(new_password) < 8:
+            print("❌ Password must be at least 8 characters")
+            return
+
+        if not any(ch.isdigit() for ch in new_password):
+            print("❌ Password must contain at least one digit")
+            return
+
+        if not any(ch.isupper() for ch in new_password):
+            print("❌ Password must contain at least one uppercase letter")
+            return
+
+        self._password = new_password
+        print("✅ Password set successfully")
+
+    # Check password strength
+    def check_strength(self):
+        score = 0
+
+        if len(self._password) >= 8:
+            score += 1
+        if any(ch.isdigit() for ch in self._password):
+            score += 1
+        if any(ch.isupper() for ch in self._password):
+            score += 1
+
+        if score == 1:
+            print("Strength: Weak")
+        elif score == 2:
+            print("Strength: Medium")
+        else:
+            print("Strength: Strong")
+
+
+# -------- Usage --------
+user = Password("Test123")
+
+print("Password:", user.password)
+
+user.password = "short"
+user.password = "password123"
+user.password = "StrongPass1"
+
+print("Password:", user.password)
+user.check_strength()
