@@ -1,0 +1,31 @@
+class User:
+    def __init__(self,age):
+        self._age = age 
+    
+    @property
+    def age(self):
+        return self._age 
+    
+    @age.setter 
+    def age(self,new_age):
+        if 1 < new_age < 120:
+            self._age = new_age 
+        else:
+            print("Age isn't valid")
+
+    
+    def checking(self):
+        if self._age < 5:
+            print("Kid")
+        elif self._age < 18:
+            print("Adult")
+        else:
+            print("Old")
+
+child = User(23)
+
+child.checking()
+print(child.age)
+child.age = 20
+
+            
