@@ -1,0 +1,16 @@
+class profile:
+    def __init__(self,name,age,emoji):
+        self.name = name 
+        self.age = age 
+        self.emoji = emoji 
+
+    def pfp(self):
+        print(f"🌸 Name: {self.name} | Age: {self.age} | Vibe: {self.emoji}")
+        print(f"🔗 Insta-style Username: {self.name}{self.age}")            
+
+name = input("Enter your name:")
+age = input("Enter your age:")
+vibe = input("What's your vibe emoji?")
+person = profile(name , age, vibe)
+
+person.pfp()
