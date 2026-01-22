@@ -1,0 +1,33 @@
+class feedbacks:
+    rate = []
+    count = 0
+    def __init__(self,rating):   
+        if feedbacks.is_valid_rating(rating):
+            self.name = input("Enter your name:")
+            feedbacks.count += 1
+            self.total_ratings = feedbacks.count 
+            feedbacks.rate.append(rating)
+            self.intro(rating)
+        else:
+            print(f" Error: {rating} is not valid rating")
+    
+    def intro(self,rating):
+        print(f"✅ Feedback from {self.name} recorded: {rating}")
+        print(f"---- Feedback Report ---")
+        print(f"Total feedbacks: {self.total_ratings}")
+        total = 0
+        for rates in feedbacks.rate:
+            total += rates
+        print(f"Average Rating: {total/self.total_ratings}")
+          
+    @staticmethod
+    def is_valid_rating(rating):
+        return(
+            0<rating<6
+        )
+
+rating = int(input("Enter the rating from 1 to 5:"))
+
+rating2 = int(input("Enter the rating from 1 to 5:"))
+user1 = feedbacks(rating)
+user2 = feedbacks(rating2)
