@@ -1,0 +1,30 @@
+class Report:
+    students = []
+    count = 0
+
+    def __init__(self, name, m1, m2, m3):
+        if Report.is_valid(name, m1, m2, m3):
+            self.name = name
+            self.marks = [m1, m2, m3]
+            Report.count += 1
+            self.student_id = f"STU{Report.count:03d}"
+            self.total = sum(self.marks)
+            self.percentage = round((self.total / 300) * 100, 2)
+            Report.students.append(self)
+            print(f"✅ {self.name} added with ID: {self.student_id}")
+        else:
+            print("❌ Invalid name or marks. Student not added.")
+
+    @staticmethod
+    def is_valid(name, m1, m2, m3):
+        return (
+            name.isalpha()
+            and all(0 <= m <= 100 for m in [m1, m2, m3])
+        )
+
+    @classmethod
+    def show_report(cls):
+        print("\n----- School Report -----")
+        print(f"Total Students: {cls.count}")
+        for student in cls.students:
+            print(f"{student.student_id} - {student.name} - Total: {student.total} - %: {student.percentage}")
