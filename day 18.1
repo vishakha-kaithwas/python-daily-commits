@@ -1,0 +1,39 @@
+class Manager:
+    company_name = "Apple"
+    employees = []
+    count = 0
+
+    def __init__(self, name):
+        if Manager.is_valid_name(name):
+            self.name = name
+            Manager.count += 1
+            self.employee_id = f"EMP{Manager.count:03}"
+            Manager.employees.append((self.employee_id, self.name))
+            print(f"✅ {self.name} added with ID: {self.employee_id}")
+        else:
+            print(f"❌ Error: Name '{name}' is invalid. Not added.")
+
+    @staticmethod
+    def is_valid_name(name):
+        return name.isalpha()
+
+    @classmethod
+    def change_company(cls, new_name):
+        cls.company_name = new_name
+        print(f"Company name changed to: {cls.company_name}")
+
+    @classmethod
+    def show_report(cls):
+        print("\n----- Company Report -----")
+        print(f"Company: {cls.company_name}")
+        print(f"Total Employees: {cls.count}")
+        for emp_id, name in cls.employees:
+            print(f"{emp_id} - {name}")
+
+emp1 = Manager("Vishakha")
+emp2 = Manager("Gagan")
+emp3 = Manager("r4hul!")  # Invalid
+emp4 = Manager("Sakshi")
+
+Manager.change_company("CodeVerse")
+Manager.show_report()
