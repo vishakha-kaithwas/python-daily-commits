@@ -1,0 +1,13 @@
+class school:
+    school_name = "Lions"
+    def intro(self):
+        print(f"Name of the student is {self.name} and studies in school {self.school_name}")
+    def change_schoolName(cls,new_name):
+        cls.school_name = new_name 
+
+student = school()
+student.name = "Vish"
+student.intro()
+student.change_schoolName("JNV")
+student.intro()
+print(student.school_name)
