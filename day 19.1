@@ -1,0 +1,30 @@
+class change:
+    count = 0
+    platform_name = "CodeGalaxy"
+    names = []
+    def __init__(self,name):
+        self.name = name 
+        change.count += 1
+        change.names.append(name)
+    
+    def info(self):
+        print(f"Platform: {self.platform_name}")
+        print(f"Registered: {self.name}, {self.name}")
+    @classmethod
+    def changing(cls,new_platformName):
+        print("Changing platform name...")
+        cls.platform_name = new_platformName
+    @classmethod
+    def show_summary(cls):
+        print(f"Platform: {cls.platform_name}")
+        print(f"Registered:",",".join(cls.names))
+        print(f"Total users: {cls.count}")
+
+user1 = change("Elen")
+user2 = change("Snowie")
+user1.info()
+user2.info()
+change.changing("devWorld")
+user3 = change("Skittle")
+user4 = change("Belunga")
+change.show_summary()
