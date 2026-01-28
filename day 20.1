@@ -1,0 +1,20 @@
+class Totaling:
+    count = 0
+
+    def __init__(self, name):
+        self.name = name
+        Totaling.count += 1
+        self.id = Totaling.count
+
+    def info(self):
+        print(f"User: {self.name} - ID: {self.id}")
+
+user1 = Totaling("Vishakha")
+user2 = Totaling("Gagan")
+user3 = Totaling("Sakshi")
+
+user1.info()
+user2.info()
+user3.info()
+
+print(f"Total users so far: {Totaling.count}")
