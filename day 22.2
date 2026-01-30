@@ -1,0 +1,27 @@
+class Student:
+    def __init__(self,name,attendance,marks):
+        self.name = name 
+        self._attendance = attendance 
+        self.__marks = marks 
+
+    
+    def show(self):
+        print(f"Name of the student is {self.name} and attendance is {self._attendance} and marks he got is {self.__marks}")
+    
+   
+    def marking(self):
+        return self.__marks 
+    
+    @marking.setter
+    def marking(self,new):
+        if 0 <= new <= 100:
+            self.__marks = new 
+        else:
+            print("Invalid marks!!")
+        
+    
+
+Student1 = Student("Harsh",98,88)
+Student1.show()
+Student1.new = 99
+print("Marks are:",Student1.marking())
