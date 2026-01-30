@@ -1,0 +1,35 @@
+class Book:
+    def __init__(self,name,price):
+        self.name = name 
+        self.price = price 
+    
+    def show(self):
+        print("Book Name:",self.name)
+        print("Book Price:",self.price)
+    
+    
+books = []
+total = int(input("Enter total number of books:"))
+    
+for i in range(total):
+        name = input("Enter the name of the book:")
+        price = int(input("Enter the price of the book:"))
+        books.append(Book(name,price))
+
+print("\nBook Details:")
+for book in books:
+        book.show()
+        print("-----")
+        
+dic = {}
+for book in books:
+      dic[book.name] = book.price 
+
+print(dic)
+long = 0
+for key in dic:
+      if dic[key] > 0:
+            long = key
+
+
+print("Longest is:",long)
