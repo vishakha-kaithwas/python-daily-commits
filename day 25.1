@@ -1,0 +1,23 @@
+def block(func):
+    def wrapper(n):
+        if n <= 0:
+            print("Negative or 0 input isn't allowed")
+            return 
+        return func(n)
+    
+    return wrapper
+
+
+
+@block
+def calculate_square(n):
+    print("Square of n is:",n*n)
+
+@block 
+def calculate_cube(n):
+    print("Cube of n is:",n*n*n)
+
+
+calculate_cube(5)
+calculate_cube(0)
+calculate_square(3)
