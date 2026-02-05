@@ -1,0 +1,30 @@
+class Mobile:
+    def __init__(self,battery):
+        self._battery = battery 
+
+    
+    @property
+    def battery(self):
+        return self._battery 
+    
+    @battery.setter 
+    def battery(self,new_battery):
+        if 0< new_battery < 100:
+            self._battery = new_battery 
+        else:
+            print("Error!! The battery should be between 0 to 100 only")
+
+    def status(self):
+        if 0 < self._battery < 20:
+            print("Low Battery")
+        elif 21 < self._battery < 80:
+            print("Battery OK")
+        else:
+            print("Fully Charged")
+    
+Batteries = Mobile(21)
+Batteries.battery = 29
+Batteries.battery = 0
+Batteries.battery = 100
+Batteries.battery = 290 
+Batteries.status()
