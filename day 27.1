@@ -1,0 +1,27 @@
+def log_action(func):
+    def wrapper(task_name):
+        print("Adding task..")
+        result = func(task_name)
+        print("Task processed..")
+        return result 
+    return wrapper
+
+def validate_task(func):
+    def wrapper(task_name):
+        if not task_name:
+            print("Empty task names aren't allowed")
+            return 
+        if not isinstance(task_name,str):
+            print("It should be string!!INVALID")
+            return 
+        return func(task_name)
+    return wrapper
+
+        
+@log_action
+@validate_task
+def add_task(task_name):
+    print(f"Task added: {task_name}")
+
+user_input = input("Enter the task:")
+add_task(user_input)
