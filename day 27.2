@@ -1,0 +1,26 @@
+import  time 
+import datetime
+import os
+mood = input("Enter your mood:")
+
+def wrapper(actual):
+    def abc():
+        start = time.time()
+        actual()
+        end = time.time()
+        print(f"Execution time: {end - start :.4f} seconds")
+    return abc
+
+@wrapper
+def actual():
+    today = datetime.date.today()
+    now = datetime.datetime.now() 
+    current_time = now.strftime("%I: %M %p")
+    with open("Moodyi.txt","a") as f:
+        f.write(f"Mood: {mood} | Date: {today} | Time: {current_time}")
+        print("Mood saved successfully")
+        print(today)
+        print(now)
+        print(current_time)
+
+actual()
