@@ -1,0 +1,14 @@
+import time
+def wrapper(actual):
+    def af():
+        start = time.time() 
+        actual()
+        end = time.time()
+        print(f"Execution time: {end - start:.4f}seconds")
+
+@wrapper
+def actual():
+    time.sleep(2)
+    print("Happy")
+    
+actual()
