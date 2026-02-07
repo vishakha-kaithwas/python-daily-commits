@@ -1,0 +1,48 @@
+contacts = { "abc":"1234",
+             "cde":"3456",
+             "efg":"4567",
+             "ghi":"5678",
+             "ijk":"6789"
+}
+while True:
+    print("=== Contact Book ===")
+    print("1. Add a contact")
+    print("2. View all contacts")
+    print("3. Search by name")
+    print("4. Delete a contact")
+    print("5. Exit")
+    choice=int(input("Enter your choice:"))
+
+    if choice == 1:
+        name = input("Enter the name you want to add:")
+        number = int(input("Enter the number:"))
+        contacts[name]=number
+        print(contacts)
+        print("New contact added successfully ✅")
+        
+    elif choice == 2:
+        for name, number in contacts.items():
+            print(f"{name} : {number}")
+        print(contacts)
+
+    elif choice == 3:
+        search = input("Enter the name you want to search:")
+        if search in contacts:
+            print("Contact found")
+        else:
+            print("Contact doesn't exist")
+
+    elif choice == 4:
+        name = input("Enter the name you want to delete:")
+        if name in contacts:
+            del contacts[name]
+            print("Contact successfully deleted ✅")
+        else:
+            print("Contact doesn't exist")
+    
+    elif choice == 5:
+        print("Exisiting the program..Goodbye👋🏼")
+
+    else:
+        print("Invalid choice!! Please enter choice between 1 to 5")
+        break 
