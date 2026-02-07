@@ -1,0 +1,54 @@
+dic = {
+    "chill" : [],
+    "hype" : [],
+    "sad" : []
+}
+class vibe:
+    def __init__(self,mood,songs):
+        self._mood = mood 
+        self._songs = songs 
+    
+    @property
+    def mood(self):
+        return self._mood 
+    
+    @mood.setter
+    def set_mood(self,new_mood):
+        if isinstance(new_mood,str) and new_mood in dic:
+            self._mood = new_mood 
+        else:
+            print("Enter correct mood")
+
+    @property
+    def songs(self):
+        return self._songs 
+    
+    @songs.setter
+    def songs(self,new_songs):
+        if isinstance(new_songs,list) and all(isinstance(song,str) for song in new_songs):
+            self._songs = new_songs
+        else:
+            print("Enter the correct vibe")
+    
+    def save_playlist(self):
+        print("✅ Playlist saved successfully")
+        print(f"🧠 Mood: {self._mood}")
+        print("🎶 Songs:")
+        for song in self._songs:
+            print(f"      -{song}")
+
+print("🎧 Welcome to your vibe locker🎧")
+mood = input("Enter your mood:").lower()
+if mood in dic:
+    songs=[]
+    print("Enter 3 songs that match your vibe:")
+    for i in range(1,4):
+        song =input(f"{i}. ")
+        songs.append(song)
+
+    user = vibe(mood,songs)
+    user.save_playlist()
+
+else:
+    print("😕 Invalid mood. Try: chill, hype, or sad.")
+    
