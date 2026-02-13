@@ -1,0 +1,16 @@
+def playlist():
+        print("🎶✨ Welcome to the Mood PLaylist Generator ✨🎶")
+        mood=input("How are you feeling today? (happy/sad/energetic/chill):")
+        try:
+            print(f"🌸 Mood: {mood}")
+            print("Here's your vibe playlist:")
+            print(moods[mood])
+        except KeyError as e:
+            print(f'''⚠️ Oops! Sorry, we don’t have a playlist for {mood}.
+Try typing: happy, sad, energetic, or chill 🧠💡''')
+            
+            print("-----------------------------")
+        finally:
+            print("👋🏼 See you again with new vibes!")
+
+playlist()
