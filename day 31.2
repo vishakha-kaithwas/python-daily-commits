@@ -1,0 +1,18 @@
+import os 
+contacts = {}
+
+total = int(input("Enter the total number of contacts you want to add:"))
+for i in range(total):
+    number = int(input("Enter the number:"))
+    name = input("Enter the name")
+    contacts[number] = [name]
+
+ins = input("Enter the name you want to search:")
+for key in contacts:
+    if ins == key:
+        print(contacts[key])
+    else:
+        print("Contact doesn't exist")
+with open('contactlogs.txt','a') as f:
+    f.write(f"{contacts}")
+    
