@@ -1,0 +1,18 @@
+import os 
+with open("intro.txt","a") as f:
+  f.write("I am learning file handling in Python")
+
+with open("intro.txt","r") as f:
+  content = f.read()
+  print(content)
+
+count = 0 
+words = content.split()
+for word in words:
+    count += 1 
+
+with open("analysis.txt","a") as f:
+  f.write(f"Total number of count is: {count}")
+  
+  
+  
