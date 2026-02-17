@@ -1,0 +1,26 @@
+import os 
+with open("intro.txt","r") as f:
+    content = f.read() 
+    print(content)
+    
+    dics = {}
+    count = 0 
+    words = content.split()
+    for j in words:
+        j.lower()
+        if j.lower() not in dics:
+            dics[j.lower()] = 1 
+        else:
+            dics[j.lower()] += 1 
+    
+    words = None 
+    largest = 0
+    for key in dics:
+        if dics[key] > largest:
+            words = key 
+            largest = dics[key]
+
+with open("analysis.txt","a") as f:
+    f.write(f"Most Frequent word: {largest} ({words} times)")
+
+        
