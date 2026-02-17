@@ -1,0 +1,13 @@
+import os 
+expenses = {
+    "Makeup" : 39439,
+    "Hair" : 94859,
+    "Car" : 29392
+}
+
+total = 0
+for expense in expenses:
+    total += expenses[expense]
+
+with open("total.txt",'a') as f:
+    f.write(f"Total expenses is: {total}")
