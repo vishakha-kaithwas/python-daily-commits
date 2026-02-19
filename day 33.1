@@ -1,0 +1,8 @@
+import os 
+folder = input("Enter the folder name:")
+if not os.path.exists(folder):
+    os.mkdir(folder)
+else:
+    print("Folder already exists")
+new = os.listdir(folder)
+print(new)
