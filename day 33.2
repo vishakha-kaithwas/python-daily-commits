@@ -1,0 +1,18 @@
+import os 
+marks = []
+sub = int(input("Enter the total number of subjects:"))
+for mark in range(sub):
+    n = int(input("Enter the marks of subject out of 100:"))
+    marks.append(n)
+
+total = 0 
+for i in marks:
+    total += i 
+
+print("Total of all is:",total)
+
+average = total/sub 
+
+with open('calculation.txt','a') as f:
+    f.write(f"Average marks of all subjects is: {average}")
+
