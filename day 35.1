@@ -1,0 +1,9 @@
+import os 
+folder = input("Enter the folder name:")
+if not os.path.exists(folder):
+    os.mkdir(folder)
+
+f = open("folder/log.txt","w")
+content = "Hello folder added successfully"
+print(f.writelines(content))
+f.close()
