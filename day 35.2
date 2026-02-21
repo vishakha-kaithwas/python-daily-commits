@@ -1,0 +1,11 @@
+import os 
+with open("intro.txt","r") as f:
+    content = f.read()
+    
+with open("analysis.txt","a") as f:
+    count = 0 
+    word = content.split()
+    for i in word:
+        count += 1 
+    f.write(f"Total words are: {count}")
+
