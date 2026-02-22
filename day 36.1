@@ -1,0 +1,13 @@
+import os
+print(os.getcwd())
+with open("notes.txt","r") as f:
+    content = f.readlines() 
+    print(content)
+
+with open("notes.txt","w") as f:
+    content = "Hello new content added successsfully"
+    f.writelines(content)
+
+with open("notes.txt","r") as f:
+    content = f.readlines() 
+    print(content)
