@@ -1,0 +1,15 @@
+import time 
+from functools import lru_cache
+
+@lru_cache(maxsize=None)
+def cubes(n):
+    if n<0:
+        return n 
+    time.sleep(2)
+    return n * n 
+
+print("Cube is:",cubes(2))
+print("Cube is:",cubes(3))
+print("Cube is:",cubes(4))
+print("Cube is:",cubes(3))
+print("Cube is:",cubes(2))
