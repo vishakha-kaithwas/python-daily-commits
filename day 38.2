@@ -1,0 +1,15 @@
+import time 
+from functools import lru_cache
+
+@lru_cache(maxsize=None)
+def fac(n):
+    if n<= 1:
+        return n 
+    time.sleep(1)
+    return n * fac(n-1)
+    
+
+print(fac(5))
+print(fac(4))
+
+print(fac.cache_info())
