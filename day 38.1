@@ -1,0 +1,26 @@
+from functools import lru_cache
+import time 
+
+@lru_cache(maxsize=10)
+def fact(n):
+    if n == 1 or n == 0 : 
+        return 1 
+    return n * fact(n-1)
+
+print(fact(4))
+print(fact(3))
+print(fact(5))
+print(fact(8))
+print(fact(9))
+print(fact(2))
+print(fact(12))
+print(fact(13))
+print(fact(55))
+print(fact(34))
+print(fact(42))
+print(fact(43))
+print(fact(44))
+print(fact(45))
+print(fact(46))
+
+print(fact.cache_info())
