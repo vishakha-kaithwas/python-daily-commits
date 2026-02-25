@@ -1,0 +1,12 @@
+import time 
+from functools import lru_cache 
+
+@lru_cache(maxsize=None)
+def sum(n):
+    i = 0
+    if n<1:
+        return n 
+    time.sleep(2)
+    return n + sum(n-1)
+
+print(sum(6))
