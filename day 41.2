@@ -1,0 +1,12 @@
+import time 
+from functools import lru_cache
+
+@lru_cache(maxsize=None) 
+def slow_function(n):
+    print(f"Calculating for {n}:...")
+    time.sleep(2)
+    return n * n 
+
+
+print(slow_function(2))
+print(slow_function(4))
