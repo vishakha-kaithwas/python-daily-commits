@@ -1,0 +1,14 @@
+import time 
+from functools import lru_cache
+
+@lru_cache(maxsize=None)
+def vowel(sentence):
+    print("Counting vowels...")
+    vowels = "aeiouAEIOU"
+    count = 0
+    for ch in sentence:
+        if ch in vowels:
+            count+= 1
+    return count 
+
+print(vowel("hello my name is vishakha kaithwas and i'm night owl"))
