@@ -1,0 +1,9 @@
+list = ["hello","hey","hope","you","are","doing","good"]
+count = 0
+def counts(list):
+    for word in list:
+        if len(word) % 2 == 0:
+            yield word 
+
+for x in counts(list):
+    print(x)
