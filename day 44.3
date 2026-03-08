@@ -1,0 +1,8 @@
+import time    
+def countdown(n):
+    for i in range(n,0,-1):
+        yield i 
+
+for a in countdown(10):
+    print(a) 
+print("Let's go")
