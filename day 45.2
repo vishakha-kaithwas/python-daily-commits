@@ -1,0 +1,25 @@
+logs = [
+    "Info: System started",
+    "Info: User logged in",
+    "Warning: Disk space low",
+    "Info: File upload",
+    "Error: Database connection failed",
+    "Info: System shutdown"
+]
+
+def event_stream(events):
+    for event in events:
+        yield event 
+
+stream = event_stream(logs)
+
+def filter_events(stream):
+    for event in stream:
+        if "Error" in event or "Warning" in event:
+            yield event
+
+important_event = filter_events(stream)
+
+print("Important Events:")
+for event in important_event:
+    print(event)
