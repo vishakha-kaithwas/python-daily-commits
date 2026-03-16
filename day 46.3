@@ -1,0 +1,23 @@
+def reading():
+    with open("log.txt","r") as f:
+            while (line := f.readline()) != " ":
+                yield line.strip()
+
+for i in reading():
+    print(i)
+def event_stream(events):
+    for event in events:
+        yield event 
+
+stream = event_stream()
+
+def filter_events(stream):
+    for event in stream:
+        if "Error" in event or "Warning" in event:
+            yield event
+
+important_event = filter_events(stream)
+
+print("Important Events:")
+for event in important_event:
+    print(event)
