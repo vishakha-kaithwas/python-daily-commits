@@ -1,0 +1,6 @@
+def repeating(msg,times):
+    for _ in range(times):
+        yield msg 
+
+for i in repeating("Hello",5):
+    print(i)
