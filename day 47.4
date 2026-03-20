@@ -1,0 +1,9 @@
+def infinite_counter():
+    i = 1
+    while True:
+        yield i
+        i += 1
+
+gen = infinite_counter()
+for _ in range(5):
+    print(next(gen))  # Prints 1 to 5
