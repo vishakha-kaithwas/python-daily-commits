@@ -1,0 +1,22 @@
+import datetime 
+
+def tracking():
+    mood = []
+    while True:
+        moods = input("Enter your today's mood:")
+        log_time = datetime.datetime.now().strftime("%Y~%M~%D %H:%M:%S")
+        mood.append((moods,log_time))
+        with open("Mooding.txt","a") as f:
+            f.writelines(f"Today's mood: {moods} and stored at time: {log_time}")
+
+        
+        choice = input("Do you want to add more mood? (Yes or NO):\n")
+        if choice.lower() == "no":
+            break
+
+    for moodi,log_time in mood:
+        yield moodi,log_time
+
+
+for i,(moodi,log_time) in enumerate(tracking(),1):
+    print(f"{i}.{moodi} - {log_time}")
